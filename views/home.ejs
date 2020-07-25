@@ -1,0 +1,20 @@
+<%- include('partials/header') -%>
+
+<h1>Home</h1>
+<p> <%= homeEjsContent %></p>
+
+<% postArray.forEach(post => {%>
+
+<h1> <%= post.title %></h1>
+
+<% if( post.content.length > 100){ %>
+
+<% let lessContent=post.content.substring(0, 100); %>
+<p> <%=lessContent %> <a href="/posts/<%= post.title %>" >...Read More</a></p>
+
+<% } else  { %>
+<p><%=post.content %></p>
+<% }}); %>
+
+
+<%- include('partials/footer') -%>
